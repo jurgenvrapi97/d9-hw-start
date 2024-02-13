@@ -1,12 +1,14 @@
+import { ADD_TO_FAVORITE, REMOVE_TO_FAVORITE } from '../action'
+
 const initialState = {
   list: {
     content: [],
   },
 }
 
-const mainReducer = (state = initialState, action) => {
+const favoriteReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'ADD_TO_FAVORITE':
+    case ADD_TO_FAVORITE:
       return {
         ...state,
         list: {
@@ -15,7 +17,7 @@ const mainReducer = (state = initialState, action) => {
         },
       }
 
-    case 'REMOVE_TO_FAVORITE':
+    case REMOVE_TO_FAVORITE:
       return {
         ...state,
         list: {
@@ -29,4 +31,4 @@ const mainReducer = (state = initialState, action) => {
   }
 }
 
-export default mainReducer
+export default favoriteReducer

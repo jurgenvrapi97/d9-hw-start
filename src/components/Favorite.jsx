@@ -2,12 +2,13 @@ import { Row, Col, Container } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { Trash2Fill } from 'react-bootstrap-icons'
 import { useSelector, useDispatch } from 'react-redux'
+import { removeToFavorite } from '../redux/action'
 
 const Favorite = () => {
-  const list = useSelector((state) => state.list.content)
+  const list = useSelector((state) => state.favorite.list.content)
   const dispatch = useDispatch()
-  console.log(list.lenght)
-  if (list.lenght === undefined) {
+  console.log(list.length)
+  if (list.length === 0) {
     return (
       <Container>
         <Row>
@@ -41,10 +42,7 @@ const Favorite = () => {
               <div id="add" className="rounded bg-danger position-relative">
                 <Trash2Fill
                   onClick={() => {
-                    dispatch({
-                      type: 'REMOVE_TO_FAVORITE',
-                      payload: i,
-                    })
+                    dispatch(removeToFavorite(i))
                   }}
                   className="text-light text-center position-absolute top-50 start-50 translate-middle"
                 ></Trash2Fill>

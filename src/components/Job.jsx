@@ -2,6 +2,7 @@ import { Row, Col } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { Plus } from 'react-bootstrap-icons'
 import { useDispatch } from 'react-redux'
+import { addToFavorite } from '../redux/action'
 
 const Job = ({ data }) => {
   const dispatch = useDispatch()
@@ -22,10 +23,7 @@ const Job = ({ data }) => {
         <div id="add" className="rounded bg-success position-relative">
           <Plus
             onClick={() => {
-              dispatch({
-                type: 'ADD_TO_FAVORITE',
-                payload: data,
-              })
+              dispatch(addToFavorite(data))
             }}
             className="text-light text-center position-absolute top-50 start-50 translate-middle"
           ></Plus>
